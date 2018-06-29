@@ -4,8 +4,8 @@ const Listing = require('../models/event')
 exports.getEvents = (request, response) => {
     Listing.find((error, events) => {
         if (error)
-            response.status(500).json({error: error.message})
-        response.status(200).json(events)
+            return response.status(500).json({error: error.message})
+        return response.status(200).json(events)
     })
 }
 
